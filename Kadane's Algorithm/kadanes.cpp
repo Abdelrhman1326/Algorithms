@@ -2,16 +2,13 @@ int maxSubarraySum(vector<int> &arr) {
     int res = arr[0];
 
     // Outer loop for starting point of subarray
-    for(int i = 0; i < arr.size(); i++) {
-        int currSum = 0;
-
-        // Inner loop for ending point of subarray
-        for(int j = i; j < arr.size(); j++) {
-            currSum = currSum + arr[j];
-
-            // Update res if currSum is greater than res
-            res = max(res, currSum);
+    long long maxSubarraySum(vector<int>& a) {
+        long long best = a[0], cur = a[0];
+    
+        for (int i = 1; i < a.size(); i++) {
+            cur = max((long long)a[i], cur + a[i]);
+            best = max(best, cur);
         }
+        return best;
     }
-    return res;
 }

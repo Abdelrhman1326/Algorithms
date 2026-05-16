@@ -162,3 +162,82 @@ int main() {
     while (t--) solve();
 }
 ```
+
+
+
+## More Optimal Solution:
+
+``````c++
+#include <bits/stdc++.h>
+using namespace std;
+
+#define AbdElrhmanMO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+
+tuple<int,int,int> maxSubarraySum(vector<int> &arr) {
+    int n = arr.size();
+
+    int maxEnding = 1;
+    int res = 1;
+
+    int cur_l = arr[0];
+    int best_l = arr[0], best_r = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        int gap = arr[i] - arr[i - 1] - 1;
+        int delta = +1 - gap; // the score increases by one and decreases by the gap size * -1 = -gap
+
+        if (1 > maxEnding + delta) {
+            maxEnding = 1;
+            cur_l = arr[i];
+        } else {
+            maxEnding += delta;
+        }
+
+        if (maxEnding > res) {
+            res = maxEnding;
+            best_l = cur_l;
+            best_r = arr[i];
+        }
+    }
+
+    return {res, best_l, best_r};
+}
+
+void solve() {
+    int n;
+    cin >> n;
+
+    map<int, vector<int>> mp;
+    vector<int> arr(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+        mp[arr[i]].push_back(i);
+    }
+
+    int best_l = 0, best_r = 0, best_num = arr[0];
+    int best_res = INT_MIN;
+
+    for (auto& [num, vec] : mp) {
+        auto [res, l, r] = maxSubarraySum(vec);
+
+        if (res > best_res) {
+            best_res = res;
+            best_num = num;
+            best_l = l;
+            best_r = r;
+        }
+    }
+
+    cout << best_num << ' ' << best_l + 1 << ' ' << best_r + 1 << '\n';
+}
+
+int main() {
+    AbdElrhmanMO
+    int t;
+    cin >> t;
+    while (t--) solve();
+}
+
+``````
+
