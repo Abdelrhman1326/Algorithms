@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 void bfsIterative(const vector<vector<int>>& dep, int u) {
     queue<int> q;
     vector<bool> vis(dep.size(), false);
