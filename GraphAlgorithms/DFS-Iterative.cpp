@@ -1,4 +1,5 @@
-void dfs(vector<vector<int>>& dep, int u, vector<bool>& vis) {
+void dfs(vector<vector<int>>& dep, int u) {
+    vector<bool> vis(dep.size(), false);
     stack<int> st;
     st.push(u);
 
