@@ -1,4 +1,4 @@
-void bfsIterative(const vector<vector<int>>& dep, int u) {
+void bfs(const vector<vector<int>>& dep, int u) {
     queue<int> q;
     vector<bool> vis(dep.size(), false);
 
