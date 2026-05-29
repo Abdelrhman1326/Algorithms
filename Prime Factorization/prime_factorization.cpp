@@ -20,6 +20,6 @@ void factorize(long long n) {
     }
 
     if (n > 1) {
-        prime_power[n] += 1;
+        prime_power[n] = 1;
     }
 }
