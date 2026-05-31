@@ -1,6 +1,8 @@
-void bfs(const vector<vector<int>>& dep, int u) {
+#include <queue>
+
+void bfs(const vector<vector<int>>& adj, int u) {
     queue<int> q;
-    vector<bool> vis(dep.size(), false);
+    vector<bool> vis(adj.size(), false);
 
     q.push(u);
     vis[u] = true;
@@ -10,7 +12,7 @@ void bfs(const vector<vector<int>>& dep, int u) {
         q.pop();
         cout << curr << '\n';
 
-        for (auto child : dep[curr]) {
+        for (auto child : adj[curr]) {
             if (!vis[child]) {
                 vis[child] = true;
                 q.push(child);

@@ -1,10 +1,10 @@
-void dfs(vector<vector<int>>& dep, int u, vector<bool>& vis) {
+void dfs(vector<vector<int>>& adj, int u, vector<bool>& vis) {
     cout << u << ' ';
     vis[u] = true;
 
-    for (auto& c : dep[u]) {
+    for (auto& c : adj[u]) {
         if (!vis[c]) {
-            dfs(dep, c, vis);
+            dfs(adj, c, vis);
         }
     }
 }

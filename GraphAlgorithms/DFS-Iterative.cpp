@@ -1,5 +1,5 @@
-void dfs(vector<vector<int>>& dep, int u) {
-    vector<bool> vis(dep.size(), false);
+void dfs(vector<vector<int>>& adj, int u) {
+    vector<bool> vis(adj.size(), false);
     stack<int> st;
     st.push(u);
 
@@ -11,8 +11,8 @@ void dfs(vector<vector<int>>& dep, int u) {
         vis[curr] = true;
         cout << curr << ' ';
 
-        for (int i = dep[curr].size() - 1; i >= 0; --i) {
-            int child = dep[curr][i];
+        for (int i = adj[curr].size() - 1; i >= 0; --i) {
+            int child = adj[curr][i];
             if (!vis[child]) {
                 st.push(child);
             }

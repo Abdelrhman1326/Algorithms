@@ -8,7 +8,7 @@ map<long long, long long> prime_power;
 void factorize(long long n) {
     prime_power.clear(); // Clear old data if running multiple testcases
 
-    for (long long i = 2; i * i <= n; i++) {
+    for (long long i = 2; (long long)(i * i) <= n; i++) {
         int count = 0;
         while (n % i == 0) {
             count += 1;
