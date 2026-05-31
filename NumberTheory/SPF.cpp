@@ -1,8 +1,5 @@
-#include <vector>
-using namespace std;
 const int MAXN = 1e7;
 vector<int> spf(MAXN + 1);
-
 void gen_spf() {
     // Initialize every number as its own smallest prime factor
     for (int i = 0; i <= MAXN; ++i) {
