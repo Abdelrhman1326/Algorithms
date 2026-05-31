@@ -13,7 +13,7 @@ void gen_spf() {
         // If spf[i] == i, then 'i' is a prime number
         if (spf[i] == i) {
             for (long long j = (i * i); j <= MAXN; j += i) {
-                // make sure the spf was processed before
+                // make sure the spf was not processed before
                 if (spf[j] == j) {
                     spf[j] = i; // the spf of all multiples is their initial simplest number
                 }
