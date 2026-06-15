@@ -1,5 +1,3 @@
-#include <queue>
-
 void bfs(const vector<vector<int>>& adj, int u) {
     queue<int> q;
     vector<bool> vis(adj.size(), false);
