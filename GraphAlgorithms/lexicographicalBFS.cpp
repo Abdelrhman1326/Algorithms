@@ -1,7 +1,7 @@
-void lexicographicalBfs(vector<vector<int>>& adj, vector<bool>& vis) {
+void lexicographicalBfs(vector<vector<int>>& adj, vector<bool>& vis, int src) {
     priority_queue<int, vector<int>, greater<int>> mh;
-    mh.push(1);
-    vis[1] = true;
+    mh.push(src);
+    vis[src] = true;
 
     while (!mh.empty()) {
         int u = mh.top();
