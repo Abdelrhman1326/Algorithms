@@ -4,13 +4,11 @@ vector<int> order;
 bool has_cycle = false;
 
 void dfs(int u) {
-    if (has_cycle) return;
     visited[u] = 1;
 
     for (int v : adj[u]) {
         if (visited[v] == 1) {
             has_cycle = true;
-            return;
         } else if (visited[v] == 0) {
             dfs(v);
         }
